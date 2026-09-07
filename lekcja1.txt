@@ -1,0 +1,6 @@
+git commit - Zapisuje przygotowane zmiany
+git branch - Tworzy nową gałąź
+git checkout - Przełącza pomiędzy różnymi gałęziami
+git checkout -b [yourbranchname] - Tworzy nową gałąź i przełącza się na nią jednym poleceniem
+git merge - Łączy zmiany z 2 różnych gałęzi
+git rebase - Łączy zmiany z 2 różnych gałęzi (liniowo)
