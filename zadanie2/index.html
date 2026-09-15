@@ -11,6 +11,20 @@
             crossorigin="anonymous">
         </script>
 
+
+        <script>
+            $(function(){
+                $("#test").on("click", function(){
+                    console.log("Nasz event")
+                });
+                
+                $("#test").click(function(){
+                    console.log("Nasz event 2 ")
+                });
+
+            })
+        </script>    
+
         <script>
 
             ///$(document).ready(function(){
@@ -61,6 +75,12 @@
             color: #007bff;
             font-weight: bold;
         }
+
+        #kwadrat { 
+        width: 150px;
+        height: 150px;
+        background:lightgray;
+        }
     </style>
 
 
@@ -106,6 +126,47 @@
         <p></p>
     </div>    
         
+    <button id="resetuj">Resetuj</button>
+
+    <button id="przywitaj">Przywitaj się</button>
+        <p id="komunikat"></p>
+ 
+    <div id="kwadrat"></div>
+ 
+    <script>
+        $(function() {
+            $("#przywitaj").on("click", function(){
+                $('#komunikat').prepend.text("Cześć");
+            });
+
+            $("#kwadrat").click(function(){
+                $(this).css( "background-color","red");
+            });
+
+
+            $("#resetuj").click(function(){
+                $('#komunikat').css( "background-color","lightgray");
+                $('#komunikat').text() = "";
+            });
+
+
+
+            let $liczba = 0;
+
+            $("#kwadrat").click(function(){
+                $liczba++;
+                $('p').text("$liczba");
+            });
+            
+
+
+
+        });
+    </script>
+
+
+
+
     </body>
 
    
