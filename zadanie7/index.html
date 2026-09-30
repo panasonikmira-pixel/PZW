@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-4.0.0.min.js" 
+            integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+            crossorigin="anonymous">
+        </script>
+
+        <script>
+            $(function(){
+                //Object Event
+                $(document).on("keydown keyup keypress",function(){
+                    $('#eventType').text(event.type);
+                })
+                $(document).on("mousemove",function(){
+                    $('#pagex').text(event.pagex);
+                    $('#pagey').text(event.pagey);
+                })
+
+                $("#jablko").css({
+                    "margin-top":Math.floor((Math.random() * 100) + 1),
+                    "margin-left":Math.floor((Math.random() * 100) + 1)
+                })
+
+                let positionx = 0;
+                let positiony = 0;
+                $(document).on("keypress",function(){
+                    
+                    if(event.key == "d"){
+                        positionx = positionx + 10;
+                        $('#kwadrat').css("margin-left", positionx + "px");
+                    }
+
+                    if(event.key == "a"){
+                        positionx = positionx - 10;
+                        $('#kwadrat').css("margin-left", positionx + "px");
+                    }
+
+                    if(event.key == "s"){
+                        positiony = positiony + 10;
+                        $('#kwadrat').css("margin-top", positiony + "px");
+                    }
+
+                    if(event.key == "w"){
+                        positiony = positiony - 10;
+                        $('#kwadrat').css("margin-top", positiony + "px");
+                    }
+
+
+                })
+            });
+        </script>
+<style>
+    #kwadrat{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    #jablko{
+        width: 50px;
+        height: 50px;
+        background-color: aqua;
+
+    }
+
+</style>
+    </head>
+
+    <body>
+        <input type="text" id="pole">
+
+        <p>
+            Typ zdarzenia:
+            <span id="eventType">---</span>
+        </p>
+
+        <p>
+            Pozycja myszy:
+            x = <span id="pagex">---</span>
+            y = <span id="pagey">---</span>
+        </p>
+
+
+        <div id="kwadrat">GG</div>
+        <div id="jablko">GG</div>
+
+        
+    </body>
+</html>
