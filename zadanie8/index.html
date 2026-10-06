@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script
+            src="https://code.jquery.com/jquery-4.0.0.min.js" 
+            integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+            crossorigin="anonymous">
+        </script>
+        <script>
+            $(function(){
+                $("#zmien").click(function(){
+                    $('p').text("nowy tekst") ;
+                });
+
+                $("#przelacz").click(function(){
+                    $("#pudelko").toggle();
+                });
+
+                $(".akapit").click(function(){
+                    $(this).toggleClass(".podswietlony");
+                })
+
+
+                
+                $("#przywitaj").click(function(){
+                let imie = $("#imie").val().trim();
+                    if(imie.length !== 0){
+                        $("#wynik").text("Czesc " + imie);    
+                    }else{
+                        $("#wynik").text("wpisz tekst "); 
+                    }
+                        
+                });
+
+                $("#akceptuje").click(function(){
+                    if(this.checked){
+                        $("#wyslij").removeAttr("disabled")
+                    }else{
+                        $("#wyslij").attr("disabled","disabled")
+                } 
+                        
+                });
+                
+                $("li").each(function(index, element){
+                    $("element").text((index + 1) + "." + $(element).text())
+                });
+
+                
+                $("#zaloguj").click(function(){
+                    let login = $("login").val();
+                    let haslo = $("haslo").val();
+                    if(login <= 3 ){
+                        $("#komunikat").text("Zalogowano")
+                    }else if(haslo <= 6 ){
+                        $("#komunikat").text("Zalogowano")
+                    }else{
+                        $("#komunikat").text("Error").css("background-color","red")
+                    } 
+                        
+                });
+
+
+
+
+
+
+
+
+            });
+        </script>
+<style>
+    .podswietlony{
+        background-color: yellow;
+    }
+
+</style>
+    </head>
+
+    <body>
+        <p id="tekst">Stary tekst</p>
+        <button id="zmien">Zmien</button>
+
+
+        <div id="pudelko">Widzisz mnie</div>
+        <button id="przelacz">Pokaz/Ukryj</button>
+
+        <p class="akapit">Kliknij mnie</p>
+
+        <input type="text" id="imie">
+        <button id="przywitaj">Przywitaj</button>
+        <p id="wynik"></p>
+
+        <label><input type="checkbox" id="akceptuje">Akceptuje</label>
+        <button id="wyslij"  disabled>Wyslij</button>
+
+        <ul id="menu">
+            <li>Strona glowna</li>
+            <li>O nas</li>
+            <li>Kontakt</li>
+        </ul>
+
+        <input type="text" id="login">
+        <input type="password" id="haslo">
+        <button id="zaloguj"  >Zaloguj</button>
+        <p id="komunikat"></p>
+    </body>
+</html>
