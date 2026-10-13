@@ -15,37 +15,68 @@
 
     <script>
         $(function(){
-            $("#tekst").keyup(function(){
-                let numberOfCharacters = $("#tekst").val().length
-                if(numberOfCharacters <= 10){
-                    $("#pozostalo").text("Pozostalo znakow:" + (10 - ($("#tekst").val().length)))
-                    $("#pozostalo").removeClass("blad")
-                }else{
-                    $("#pozostalo").text("Pozostalo znakow:" + 0)
-                    $("#pozostalo").addClass("blad")
+            $("#blok").click(function(){
+                if ($(this)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
                 }
-            })
-            if(event.key == "Escape"){
-                $("#pozostalo").text("Pozostalo znakow: 10")
-                $("#pozostalo").removeClass("blad")
-                $(this).val("")
-            }
+                });
 
-            if(event.key == "Enter" && $(this).val() == "admin"){
-                console.log("Dostep przyznany")
-            }
+                $("#blok2").click(function(){
+                    $(this).toggle();
+                });
+
+                $("#blok3").click(function(){
+                    $(this).slideUp();
+                });
+
+                $("#blok4").click(function(){
+                    $(this).slideDown();
+                });
+
+                $("#blok5").click(function(){
+                    $(this).slideToggle();
+                });
 
         });
+
     </script>
         
     <style>
-        .blad{
+        #blok{
+            background-color:green;
+            width: 100px;
+            height: 100px;
+        }
+        #blok2{
             background-color:red;
+            width: 50px;
+            height: 50px;
+        }
+        #blok3{
+            background-color:fuchsia;
+            width: 150px;
+            height: 150px;
+        }
+
+        #blok2{
+            background-color:gold;
+            width: 70px;
+            height: 70px;
+        }
+        #blok3{
+            background-color:rgb(106, 59, 235);
+            width: 200px;
+            height: 200px;
         }
     </style>
 </head>
 <body>
-    <input type="text" id="tekst">
-    <p id="pozostalo">Pozostalo znakow:</p>
+    <div id="blok"></div>
+    <div id="blok2"></div>
+    <div id="blok3"></div>
+    <div id="blok4"></div>
+    <div id="blok5"></div>
 </body>
 </html>
