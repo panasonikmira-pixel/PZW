@@ -14,32 +14,32 @@
 
 
     <script>
-        $(function(){
-            $("#blok").click(function(){
-                if ($(this)) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
-                }
-                });
+        $(function(){ 
+    $("#blok").click(function(){ 
+        if ($(this).is(':visible')) { 
+            $(this).hide(); 
+        } else { 
+            $(this).show(); 
+        } 
+    }); 
 
-                $("#blok2").click(function(){
-                    $(this).toggle();
-                });
+    $("#blok2").click(function(){ 
+        $(this).toggle(); 
+    }); 
 
-                $("#blok3").click(function(){
-                    $(this).slideUp();
-                });
+    $("#blok3").click(function(){ 
+        $(this).slideUp(); 
+    }); 
 
-                $("#blok4").click(function(){
-                    $(this).slideDown();
-                });
+    $("#blok4").click(function(){ 
+        $(this).slideDown(); 
+    }); 
 
-                $("#blok5").click(function(){
-                    $(this).slideToggle();
-                });
+    $("#blok5").click(function(){ 
+        $(this).slideToggle(); 
+    }); 
+});
 
-        });
 
     </script>
         

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js" 
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function(){
+            $("#newsletter").change(function(){
+                if($(this).is(":checked")){
+                    $("#stan").text("Zapisano");
+                }else{
+                    $("#stan").text("Wypisano");
+                }
+            });
+
+            $("#newsletter").change(function(){
+                if($(this).is(":checked")){
+                    $("#rejestracja").prop("disabled",false);
+                }else{
+                    $("#rejestracja").prop("disabled",true);
+                }
+            });
+
+            $("tekst").on("input", function(){
+                $("podglad").text($(this).val())
+            });
+
+            $("textarea").on("input", function(){
+                let charaktersLeft = 100 - $(this).val().lenght;
+                $("licznik").text(charaktersLeft);
+                if(charaktersLeft < 10){
+                    $("licznik").css("color","red");
+                }else{
+                    $("licznik").css("color","black");
+                }
+            });
+
+        });
+    </script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="newsletter">
+    <button id="rejestracja">Zarejestruj</button>
+    <p id="stan" ></p>
+    <hr>
+
+    <input type="text" id="tekst">
+    <p id="p" > Podglad: <span id="podglad"></span></p>
+    <hr>
+
+    <textarea maxlength="100" id="textarea"></textarea>
+    <p id="p" > Podglad: <span id="licznik">100</span></p>
+</body>
+</html>

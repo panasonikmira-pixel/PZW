@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js" 
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function(){
+            $("#formularz").submit(function(e){
+                e.preventDefault()
+                if($("#nick".val() === "")){
+                    $("#info").text("Podaj nick");
+                }else{
+                    $("#info").text("Wyslano");
+                }
+            });
+
+            $("#formularz2").submit(function(e){
+                e.preventDefault()
+                if($("password").length < 6){
+                    $("#info2").text("Haslo jest za krotkie").css("color", "red");
+                }else{
+                    $("#info2").text("Zalogowano").css("color", "green");
+                }
+            });
+
+            $("#kolor").change(function(){
+                $("body").css("background-color",$(this).val());
+            });
+
+            $("#pizzadoWyboru").change(function(){
+                $("#infoPizza").text("Do zaplaty:" +  $(this).val() +"zl");
+            });
+
+        });
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <form id="formularz">
+        <input type="text" id="nick">
+        <button type="submit">Wyslij</button>
+    </form>
+    <p id="info"></p>
+    <hr>
+
+    <form id="formularz2">
+        <label>E-mail</label>
+        <input type="text" id="email">
+
+        <label>Haslo</label>
+        <input type="password" id="password">
+        <button type="submit">Wyslij</button>
+
+        <p id="info2"></p>
+    </form>
+    <hr>
+
+    <select id="kolor">
+        <option value="white">white</option>
+        <option value="yellow">yellow</option>
+        <option value="lightblue">lightblue</option>
+    </select>
+    <hr>
+
+    <select id="pizzadoWyboru">
+        <option value="20">mala 20 zl</option>
+        <option value="30">srednia 30 zl</option>
+        <option value="40">duza 40 zl</option>
+    </select>
+    <p id="infoPizza"></p>
+</body>
+</html>
