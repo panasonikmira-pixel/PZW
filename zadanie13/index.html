@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.min.js" 
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(function(){
+            $("#sprawdz").click(function(){
+                if($("#tekst").val().trim() === ""){
+                    $("#komunikat").text("To pole jest puste.");
+                }else{
+                    $("#komunikat").text($("#tekst").val());
+                }
+            });
+
+            $("#formularz").submit(function(e){
+                e.preventDefault()
+                if($("#nazwisko").val().trim() === "" || $("#nazwisko").val() === " "){
+                    $("#komunikat2").text("Podaj nazwisko").css("color", "red");
+                }else{
+                    $("#komunikat2").text("Wyslano formularz").css("color", "green");
+                }
+            });
+
+            $("#sprawdz2").click(function(){
+                let wiek = $("#wiek").val();
+                if(isNaN(wiek)){
+                    $("#komunikat3").text("Wiek musi byc liczba");
+                }else{
+                    $("#komunikat3").text("Masz:" + wiek + "lat");
+                }
+            });
+
+
+            $("#button").click(function(e){
+                e.preventDefault()
+                let ocena = $("#ocena").val().trim();
+                console.log(ocena === "");
+                console.log(isNaN(ocena));
+                console.log(ocena > 1 );
+                console.log(ocena < 6 );
+                if(ocena === "" || isNaN(ocena)){
+                    $("#komunikat4").text("To nie jest liczba");
+                    
+                }else if(ocena < 1 || ocena > 6){
+                     $("#komunikat4").text("liczba poza zakresem");
+                    
+                }else{
+                    $("#komunikat4").text("Zapisano ocene:" + ocena);
+                }
+            });
+
+
+            // $('#formularz2').click(function () {
+            //     let ocenaStr = $('#ocena').val().trim();
+            //     let ocena = Number(ocenaStr);
+
+            //     if (ocenaStr === "" || isNaN(ocena) || ocena < 1 || ocena > 6) {
+            //         $('#komunikat4').text('To nie jest liczba');
+            //     } else {
+            //         $('#komunikat4').text('Zapisano ocene: ' + ocena);
+            //     }
+            // });
+
+            
+
+        });
+    </script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" id="tekst">
+    <input type="button" id="sprawdz" value="Check">
+    <p id="komunikat"></p>
+    <hr>
+
+    <form id="formularz">
+        <label for="label" id="nazwisko" >Nazwisko</label>
+        <input type="text" id="nazwisko">
+        <button type="submit">Wyslij</button>
+        <p id="komunikat2"></p>
+    </form>
+    <hr>
+
+    <input type="text" id="wiek">
+    <button type="submit" id="sprawdz2">Wyslij</button>
+    <p id="komunikat3"></p>
+    <hr>
+
+    <form id="formularz2">
+        <label for="Ocena">Ocena</label>
+        <input type="text" id="ocena">
+        <button type="submit" id="button">zapisz</button>
+        <p id="komunikat4"></p>
+    </form>
+</body>
+</html>
